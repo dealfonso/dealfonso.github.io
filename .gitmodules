@@ -1,0 +1,3 @@
+[submodule "climb"]
+	path = climb
+	url = https://github.com/dealfonso/random-climb
