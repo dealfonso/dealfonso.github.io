@@ -62,7 +62,7 @@
                     </div>
                     <input type="file" >
                 </div>
-                <div id="simple-lottie-player" class="rounded-2 border border-white m-auto"></div>
+                <div id="simple-lottie-player" class="rounded-2 border border-white m-auto" overlay-buttons fullsize-button></div>
                 <a href="#" id="download-button" class="download-btn btn btn-primary d-none">download</a>
             </div>
         </div>
@@ -132,6 +132,7 @@
         lottiePlayer = new SimpleLottiePlayer("#simple-lottie-player", {
             overlayButtons: true,
             fullsizeButton: true,
+            controlButtons: true,
             maxHeight: 300,
         });
         document.addEventListener("dragover", event => event.preventDefault());
