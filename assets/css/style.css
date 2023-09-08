@@ -977,7 +977,7 @@ a:hover {
 }
 
 .work-content .w-more .w-ctegory {
-  color: #0078ff;
+  /* color: #0078ff; */
 }
 
 .work-content .w-like {
@@ -992,7 +992,11 @@ a:hover {
 }
 
 .work-content .w-like a {
-  color: #0078ff;
+  /* color: #0078ff; */
+}
+
+.work-content .w-like i {
+  font-size: 1.35rem;
 }
 
 .work-content .w-like .num-like {
