@@ -295,7 +295,12 @@
   document.addEventListener('DOMContentLoaded', function() {
     document.querySelectorAll('[data-minimize-container]').forEach(function(el) {
       let bins = el.querySelectorAll('[data-minimize-bin]');
-      let items = el.querySelectorAll('[data-minimize-item]');
+      let items = Array.from(el.querySelectorAll('[data-minimize-item]'));
+      
+      // We are trying to put the bigger items first
+      items.sort(function(a, b) {
+        return b.offsetHeight - a.offsetHeight;
+      });
 
       // First we are going to remove the items from their parents
       items.forEach(function(item) {
