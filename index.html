@@ -119,9 +119,9 @@
             </div>
           </div>
         </div>
-        <div class="row">
-          <div class="col-md-6 col-lg-4 col-sm-12">
-            <div class="work-box">
+        <div class="row" data-minimize-container data-minimize-height data-minimize-width>
+          <div class="col-md-6 col-lg-4 col-sm-12" data-minimize-bin>
+            <div class="work-box" data-minimize-item>
               <a href="https://github.com/dealfonso/pdfjs-viewer">
                 <div class="work-img">
                   <img src="https://cdn.jsdelivr.net/gh/dealfonso/pdfjs-viewer@1.1/img/ex3.png" alt="" class="img-fluid">
@@ -144,10 +144,7 @@
                 </div>
               </div>
             </div>
-          </div>
-
-          <div class="col-md-6 col-lg-4 col-sm-12">
-            <div class="work-box">
+            <div class="work-box" data-minimize-item>
               <a href="selectbox-ui/index.html">
                 <div class="work-img">
                   <img src="https://cdn.jsdelivr.net/gh/dealfonso/selectbox-ui@main/img/selectboxui-example.png" alt="" class="img-fluid">
@@ -172,12 +169,7 @@
                 </div>
               </div>
             </div>
-          </div>          
-
-
-
-          <div class="col-md-6 col-lg-4 col-sm-12">
-            <div class="work-box">
+            <div class="work-box" data-minimize-item>
               <a href="simplelottieplayer/lottietrimmer.html">
                 <div class="work-img">
                   <img src="assets/img/simplelottie.png" alt="" class="img-fluid">
@@ -204,11 +196,7 @@
                 </div>
               </div>
             </div>
-          </div> 
-
-
-          <div class="col-md-6 col-lg-4 col-sm-12">
-            <div class="work-box">
+            <div class="work-box" data-minimize-item>
               <a href="on-event/index.html">
                 <div class="work-img">
                   <img src="img/on-event.png" alt="" class="img-fluid">
@@ -234,12 +222,35 @@
                 </div>
               </div>
             </div>
-          </div> 
-
-
-
-
-
+            <div class="work-box" data-minimize-item>
+              <a href="https://github.com/dealfonso/sapp">
+                <div class="work-img">
+                  <img src="img/sapp-logo.png" alt="" class="img-fluid">
+                </div>
+              </a>
+              <div class="work-content">
+                <div class="row">
+                  <div class="col-sm-8">
+                    <h2 class="w-title">Simple and Agnostic PDF Document Parser (SAPP)</h2>
+                    <div class="w-more">
+                      <p>SAPP is a PDF parser that enables other cool features such as digitally signing documents using PHP (it also enables multiple signatures), rebuilding documents (to make the content more clear or compact), etc.</p>
+                    </div>
+                  </div>
+                  <div class="col-sm-4">
+                    <div class="w-like">
+                      <ul>
+                        <li><a href="https://github.com/dealfonso/sapp" class="btn btn-dark"><i class="bi bi-github"></i></a></li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 col-sm-12" data-minimize-bin>
+          </div>
+          <div class="col-md-6 col-lg-4 col-sm-12" data-minimize-bin>
+          </div>
         </div>
       </div>
     </section><!-- End Portfolio Section -->
@@ -280,5 +291,40 @@
   <script src="assets/js/main.js"></script>
 
 </body>
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-minimize-container]').forEach(function(el) {
+      let bins = el.querySelectorAll('[data-minimize-bin]');
+      let items = el.querySelectorAll('[data-minimize-item]');
+
+      // First we are going to remove the items from their parents
+      items.forEach(function(item) {
+        item.remove();
+      });
+
+      // Now we are going to calculate the best distribution of the items in the bins
+      items.forEach(function(item) {
+        // We are getting the sizes of each bin
+        let binSizes = [];
+        bins.forEach(function(bin) {
+          binSizes.push(bin.offsetHeight);
+        });
+
+        // And now we are calculating the less difference between the bins after adding the item
+        let differences = [];
+        bins.forEach(function(bin, i) {
+          bin.appendChild(item);
+          differences.push(Math.abs(bin.offsetHeight - binSizes[i]));
+          item.remove();
+        });
+
+        // And now we are adding the item to the bin with the less difference
+        let minDifference = Math.min(...differences);
+        let minDifferenceIndex = differences.indexOf(minDifference);
+        bins[minDifferenceIndex].appendChild(item);
+      });
+    });
+  });
+</script>
 
 </html>
