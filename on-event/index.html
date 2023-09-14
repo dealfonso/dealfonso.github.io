@@ -44,21 +44,21 @@
         <a class="ms-auto btn btn-dark" href="https://github.com/dealfonso/on-event" target="_blank"><i class="bi bi-github pe-2"></i>view in github</a>
     </div>
     <h1>Examples for the on-event library</h1>
-    <div class="example" data-showsource data-showsource-hide>
+    <div class="example" data-showsource>
         <h2>Simple example</h2>
         <p>add the <span class="fw-bold">on-click</span> attribute, to add a basic handler to the element.</p>
         <div class="d-flex">
             <img src="https://picsum.photos/400/200" class="mx-auto" on-click="alert('click')">
         </div>
     </div>
-    <div class="example" data-showsource data-showsource-hide>
+    <div class="example" data-showsource>
         <h2>Example for input elements</h2>
         <p>add the <span class="fw-bold">on-change</span> attribute, to add a basic handler to the element.</p>
         <div class="d-flex">
             <input type="text" class="form-control" placeholder="Type something" on-change="alert('change')">
         </div>
     </div>
-    <div class="example" data-showsource data-showsource-hide>
+    <div class="example" data-showsource>
         <h2>Using complex event names</h2>
         <p>most event names have easy names but this library may accept almost any type of event name. e.g.
             show.bs.modal</p>
@@ -77,7 +77,7 @@
             Launch modal with event handler
         </button>
     </div>
-    <div class="example" data-showsource data-showsource-hide>
+    <div class="example" data-showsource>
         <h2>Mapping the names to not-only-lowercase names</h2>
         <p>While most event names are lowercase, some events may use some capital letters in their name (or weird characters such as *). In these cases we can use the <span class="fw-bold">:map</span> suffix to add a translation.</p>
         <p>In this example, the <span class="fw-bold">on-capitalevent</span> attribute will be translated to <span class="fw-bold">on-CapitalEvent</span> event name</p>
@@ -88,10 +88,12 @@
     </div>
 </body>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdn.jsdelivr.net/gh/dealfonso/showsource@1.1/dist/showsource.js"></script>
+<script src="https://cdn.jsdelivr.net/gh/dealfonso/showsource@1.2/dist/showsource.js"></script>
 <script>
     showsource.defaults.separateElements = "on-*";
     showsource.defaults.maxAttributesPerLine = 4;
+    showsource.defaults.hideSelector = ".example";
+    showsource.defaults.skipSelector = "h1, h2, h3, h4, h5, h6, p";
 </script>
 <script>
     document.addEventListener('DOMContentLoaded', function () {
