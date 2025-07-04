@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="https://cdn.jsdelivr.net/gh/dealfonso/tse@1.0.1/dist/tse.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/dealfonso/showsource@1/dist/showsource.min.js"></script>    
+</head>
+<body>
+<h1>Result:</h1>
+    <div>
+        <p>The current date is: ${new Date().toLocaleDateString()}</p>
+        <p>The version of the library is ${DOMTemplateStringEvaluator.getVersion()}</p>
+        <input type="text" data-tse-bind-value="'Default value'">
+    </div>
+    <pre>
+<h1>Source code</h1>
+<textarea disabled cols="80" rows="10" style="width: 100%; min-height: 200px;" data-tse-disable>
+<div>
+    <p>The current date is: ${new Date().toLocaleDateString()}</p>
+    <p>The version of the library is ${DOMTemplateStringEvaluator.getVersion()}</p>
+    <input type="text" data-tse-bind-value="'Default value'">
+</div>
+</textarea>
+</body>
+</html>
