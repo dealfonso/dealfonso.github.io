@@ -61,6 +61,12 @@ a:hover {
   box-shadow: 0 13px 8px -10px rgba(0, 0, 0, 0.1);
 }
 
+.work-box {
+  border-radius: 1rem;
+  overflow: hidden;
+  padding: 1rem;
+}
+
 .box-shadow-a,
 .button:hover {
   text-decoration: none;
@@ -1477,3 +1483,4 @@ footer .credits {
 footer .credits a {
   color: #fff;
 }
+
